@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->integer('no_slip');
             $table->unsignedBigInteger('user_id');
-            $table->integer('gaji pokok');
+            $table->integer('gaji_pokok');
             $table->integer('absen');
             $table->string('tunjangan');
-            $table->bigInteger('total gaji');
+            $table->bigInteger('total_gaji');
             $table->timestamps();
 
             // Foreign Key

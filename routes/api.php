@@ -2,10 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\GajiController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\DivisiController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Karyawan\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +47,11 @@ Route::get('/admin/account', [AccountController::class, 'index']);
 Route::post('/admin/account/store', [AccountController::class, 'store']);
 Route::put('/admin/account/{id}', [AccountController::class, 'update']);
 Route::delete('/admin/account/{id}', [AccountController::class, 'destroy']);
+
+// Gajian
+Route::post('/admin/gaji/store', [GajiController::class, 'store']);
+Route::put('/admin/gaji/{id}', [GajiController::class, 'update']);
+Route::delete('/admin/gaji/{id}', [GajiController::class, 'destroy']);
+
+// Absensi Karyawan
+Route::post('/karyawan/absensi/store', [AbsensiController::class, 'store']);
