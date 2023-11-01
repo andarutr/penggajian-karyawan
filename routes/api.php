@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Roles
+Route::get('/admin/role', [RoleController::class, 'index']);
+Route::post('/admin/role/store', [RoleController::class, 'store']);
+Route::put('/admin/role/{id}', [RoleController::class, 'update']);
+Route::delete('/admin/role/{id}', [RoleController::class, 'destroy']);
+
