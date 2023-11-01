@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\DivisiController;
+use App\Http\Controllers\Admin\JabatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,9 @@ Route::get('/admin/divisi', [DivisiController::class, 'index']);
 Route::post('/admin/divisi/store', [DivisiController::class, 'store']);
 Route::put('/admin/divisi/{id}', [DivisiController::class, 'update']);
 Route::delete('/admin/divisi/{id}', [DivisiController::class, 'destroy']);
+
+// Jabatan
+Route::get('/admin/jabatan', [JabatanController::class, 'index']);
+Route::post('/admin/jabatan/store', [JabatanController::class, 'store']);
+Route::put('/admin/jabatan/{id}', [JabatanController::class, 'update']);
+Route::delete('/admin/jabatan/{id}', [JabatanController::class, 'destroy']);
