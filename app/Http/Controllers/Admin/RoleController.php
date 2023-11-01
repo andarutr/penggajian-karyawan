@@ -10,7 +10,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $role = \DB::table('roles')->get();
+        $role = Role::get();
         return response()->json([
                         'data' => $role
                     ]);
@@ -56,7 +56,7 @@ class RoleController extends Controller
 
     protected function destroy($id)
     {
-        $destroy = Role::destroy($id);
+        $destroy = Role::where('id', $id)->delete();
 
         if($destroy){
             return response()->json(['message' => 'Berhasil menghapus role!']);
