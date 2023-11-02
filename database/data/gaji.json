@@ -1,0 +1,10 @@
+[
+	{
+		"no_slip": 12345,
+		"user_id": 2,
+		"gaji_pokok": 5000000,
+		"absen": 0,
+		"tunjangan": "BPJS Kesehatan",
+		"total_gaji": 60000000
+	}
+]

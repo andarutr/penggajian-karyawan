@@ -1,0 +1,26 @@
+[
+	{
+		"nik": 12345678,
+		"nama_lengkap": "Admin",
+		"jenis_kelamin": "Pria",
+		"status": "Belum Menikah",
+		"agama": "Islam",
+		"kewarganegaraan": "WNI",
+		"email": "admin@domain.com",
+		"divisi_id": 4,
+		"jabatan_id": 3,
+		"role_id": 1
+	},
+	{
+		"nik": 87654321,
+		"nama_lengkap": "Muhammad Rizaq",
+		"jenis_kelamin": "Pria",
+		"status": "Belum Menikah",
+		"agama": "Islam",
+		"kewarganegaraan": "WNI",
+		"email": "rizaq@domain.com",
+		"divisi_id": 3,
+		"jabatan_id": 3,
+		"role_id": 2
+	}
+]
