@@ -2,12 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\GajiController;
-use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\DivisiController;
-use App\Http\Controllers\Admin\JabatanController;
-use App\Http\Controllers\Admin\AccountController;
-use App\Http\Controllers\Karyawan\AbsensiController;
+use App\Http\Controllers\Api\Admin\GajiController;
+use App\Http\Controllers\Api\Admin\RoleController;
+use App\Http\Controllers\Api\Admin\DivisiController;
+use App\Http\Controllers\Api\Admin\JabatanController;
+use App\Http\Controllers\Api\Admin\AccountController;
+use App\Http\Controllers\Api\Karyawan\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------

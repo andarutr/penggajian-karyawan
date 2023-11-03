@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Gaji;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostGaji;
 use App\Http\Controllers\Controller;
 
 class GajiController extends Controller
@@ -22,7 +23,7 @@ class GajiController extends Controller
 		// ...
 	}
 
-	public function store(Request $req)
+	public function store(PostGaji $req)
 	{
 		$store = Gaji::create([
 			'no_slip' => $req->no_slip,
@@ -38,12 +39,12 @@ class GajiController extends Controller
 		]);
 	}
 
-	public function edit(Request $req, $id)
+	public function edit(PostGaji $req, $id)
 	{
 		// ...
 	}
 
-	public function update(Request $req, $id)
+	public function update(PostGaji $req, $id)
 	{
 		$update = Gaji::where('id', $id)->update([
 			'no_slip' => $req->no_slip,
