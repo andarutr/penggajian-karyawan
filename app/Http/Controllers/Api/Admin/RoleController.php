@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReqRoles;
 use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
@@ -21,7 +22,7 @@ class RoleController extends Controller
         // ...
     }
 
-    public function store(Request $req)
+    public function store(ReqRoles $req)
     {
         $store = Role::create([
             'role' => $req->role
@@ -32,12 +33,12 @@ class RoleController extends Controller
         ]);
     }
 
-    public function edit(Request $req, $id)
+    public function edit(ReqRoles $req, $id)
     {
         // ...
     }
 
-    public function update(Request $req, $id)
+    public function update(ReqRoles $req, $id)
     {
         $update = Role::where('id', $id)->update([
             'role' => $req->role

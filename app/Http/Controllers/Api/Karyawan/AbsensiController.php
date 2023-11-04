@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Api\Karyawan;
 
 use App\Models\Absensi;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostAbsensi;
 use App\Http\Controllers\Controller;
 use Adrianorosa\GeoLocation\GeoLocation;
 
@@ -14,7 +15,7 @@ class AbsensiController extends Controller
         // ...
     }
 
-    public function store(Request $req)
+    public function store(PostAbsensi $req)
     {
         $location = GeoLocation::lookup();
         $store = Absensi::create([

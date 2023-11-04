@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReqJabatan;
 use App\Http\Controllers\Controller;
 
 class JabatanController extends Controller
@@ -22,8 +23,12 @@ class JabatanController extends Controller
 		// ...
 	}
 
-	public function store(Request $req)
+	public function store(ReqJabatan $req)
 	{
+		$this->validate($req, [
+			'jabatan' => $req
+		]);
+
 		$store = Jabatan::create([
 			'jabatan' => $req->jabatan
 		]);
@@ -33,12 +38,12 @@ class JabatanController extends Controller
 		]);
 	}
 
-	public function edit(Request $req, $id)
+	public function edit(ReqJabatan $req, $id)
 	{
 		// ...
 	}
 
-	public function update(Request $req, $id)
+	public function update(ReqJabatan $req, $id)
 	{
 		$update = Jabatan::where('id', $id)->update([
 			'jabatan' => $req->jabatan

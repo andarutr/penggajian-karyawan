@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Models\Gaji;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostGaji;
+use App\Http\Requests\UpdateGaji;
 use App\Http\Controllers\Controller;
 
 class GajiController extends Controller
@@ -39,12 +40,12 @@ class GajiController extends Controller
 		]);
 	}
 
-	public function edit(PostGaji $req, $id)
+	public function edit(UpdateGaji $req, $id)
 	{
 		// ...
 	}
 
-	public function update(PostGaji $req, $id)
+	public function update(UpdateGaji $req, $id)
 	{
 		$update = Gaji::where('id', $id)->update([
 			'no_slip' => $req->no_slip,

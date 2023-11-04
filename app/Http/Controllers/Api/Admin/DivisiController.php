@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\Divisi;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReqDivisi;
 use App\Http\Controllers\Controller;
 
 class DivisiController extends Controller
@@ -22,7 +23,7 @@ class DivisiController extends Controller
 		// ...
 	}
 
-	public function store(Request $req)
+	public function store(ReqDivisi $req)
 	{
 		$store = Divisi::create([
 			'divisi' => $req->divisi
@@ -33,12 +34,12 @@ class DivisiController extends Controller
 		]);
 	}
 
-	public function edit(Request $req, $id)
+	public function edit(ReqDivisi $req, $id)
 	{
 		// ...
 	}
 
-	public function update(Request $req, $id)
+	public function update(ReqDivisi $req, $id)
 	{
 		$update = Divisi::where('id', $id)->update([
 			'divisi' => $req->divisi

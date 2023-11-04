@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostUser;
+use App\Http\Requests\UpdateUser;
 use App\Http\Controllers\Controller;
 
 class AccountController extends Controller
@@ -22,7 +24,7 @@ class AccountController extends Controller
 		// ...
 	}
 
-	public function store(Request $req)
+	public function store(PostUser $req)
 	{
 		$store = User::create([
 			'nik' => $req->nik, // NULL
@@ -43,12 +45,12 @@ class AccountController extends Controller
 		]);
 	}
 
-	public function edit(Request $req, $id)
+	public function edit(UpdateUser $req, $id)
 	{
 		// ...
 	}
 
-	public function update(Request $req, $id)
+	public function update(UpdateUser $req, $id)
 	{
 		$update = User::where('id', $id)->update([
 			'nik' => $req->nik, // NULL
