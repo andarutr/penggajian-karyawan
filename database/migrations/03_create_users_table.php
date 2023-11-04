@@ -24,7 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('divisi_id');
             $table->unsignedBigInteger('jabatan_id');
             $table->unsignedBigInteger('role_id');
-            $table->rememberToken();
+            $table->string('api_token')->nullable();
             $table->timestamps();
 
             // Foreign Key
