@@ -17,20 +17,29 @@
     <!-- Icons css -->
     <link href="{{ url('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 </head>
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+        @include('partials.topbar')
+        @include('partials.sidebar')
+        <div class="content-page">
+            <div class="content">                  
+                @yield('content')
+            </div> <!-- content -->
 
-<body class="authentication-bg position-relative">
-    <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5 position-relative">
-        @yield('content')
+            <footer class="footer footer-alt fw-medium">
+                <span class="bg-body">
+                    Muhammad Rizaq Rifatulloh
+                </span>
+            </footer>
+        </div>
     </div>
-    <!-- end page -->
+    <!-- END wrapper -->
 
-    <footer class="footer footer-alt fw-medium">
-        <span class="bg-body">
-            Muhammad Rizaq Rifatulloh
-        </span>
-    </footer>
-
+    <!-- App js -->
     <script src="{{ url('assets/js/vendor.min.js') }}"></script>
     <script src="{{ url('assets/js/app.min.js') }}"></script>
+
 </body>
+
 </html>
