@@ -9,6 +9,9 @@ use App\Http\Controllers\Api\Admin\DivisiController;
 use App\Http\Controllers\Api\Admin\JabatanController;
 use App\Http\Controllers\Api\Admin\AccountController;
 use App\Http\Controllers\Api\Karyawan\AbsensiController;
+use App\Http\Controllers\Api\Karyawan\DashboardController;
+use App\Http\Controllers\Api\Settings\UpdateProfileController;
+use App\Http\Controllers\Api\Settings\ChangePasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +61,12 @@ Route::post('/admin/gaji/store', [GajiController::class, 'store']);
 Route::put('/admin/gaji/{id}', [GajiController::class, 'update']);
 Route::delete('/admin/gaji/{id}', [GajiController::class, 'destroy']);
 
+// Dashboard
+Route::get('/karyawan', DashboardController::class);
+
 // Absensi Karyawan
 Route::post('/karyawan/absensi/store', [AbsensiController::class, 'store']);
+
+// Settings for Admin and Karyawan
+Route::post('/change-password', [ChangePasswordController::class, 'update']);
+Route::post('/update-profile', [UpdateProfileController::class, 'update']);
