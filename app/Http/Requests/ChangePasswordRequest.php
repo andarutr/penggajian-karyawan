@@ -30,10 +30,11 @@ class ChangePasswordRequest extends FormRequest
         ];
     }
 
-    public function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json([
-            'validations'    => $validator->errors()
-        ], 422));
-    }
+    // For APIs
+    // public function failedValidation(Validator $validator)
+    // {
+    //     throw new HttpResponseException(response()->json([
+    //         'validations'    => $validator->errors()
+    //     ], 422));
+    // }
 }
