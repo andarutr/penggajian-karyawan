@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('status', ['Kawin','Belum Menikah'])->nullable();
             $table->enum('agama', ['Islam','Kristen','Katolik','Budha','Hindu']);
             $table->enum('kewarganegaraan', ['WNI','WNA']);
+            $table->string('picture', 128)->default('user.jpg');
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedBigInteger('divisi_id');
