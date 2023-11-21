@@ -1,6 +1,7 @@
 [
 	{
 		"user_id": 2,
+		"picture": "test_absen.png",
 		"keterangan": "Hadir"
 	}
 ]

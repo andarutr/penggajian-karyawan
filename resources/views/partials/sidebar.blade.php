@@ -53,9 +53,9 @@
     <!--- Sidemenu -->
     <ul class="side-nav">
       <li class="side-nav-title mt-3">Apps</li>
-
+      @if(Auth::user()->role->role === 'Karyawan')
       <li class="side-nav-item">
-        <a href="apps-calendar.php" class="side-nav-link">
+        <a href="{{ url(Request::segment(1)) }}" class="side-nav-link">
           <i class="ri-home-4-line"></i>
           <span> Dashboard </span>
         </a>
@@ -63,18 +63,20 @@
 
 
       <li class="side-nav-item">
-        <a href="apps-calendar.php" class="side-nav-link">
+        <a href="{{ url(Request::segment(1).'/absensi') }}" class="side-nav-link">
           <i class="ri-calendar-event-line"></i>
           <span> Absen </span>
         </a>
       </li>
 
       <li class="side-nav-item">
-        <a href="apps-chat.php" class="side-nav-link">
+        <a href="#" class="side-nav-link">
           <i class="ri-list-check-3"></i>
           <span> Rincian Gaji </span>
         </a>
       </li>
+      @endif
+
     </ul>
     <!--- End Sidemenu -->
 

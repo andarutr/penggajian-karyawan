@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('absensi', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('picture', 128);
             $table->timestamp('waktu');
             $table->string('kota', 50);
             $table->string('longitude', 50);
