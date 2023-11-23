@@ -1,6 +1,7 @@
 <?php 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Karyawan\GajiController;
 use App\Http\Controllers\Karyawan\AbsensiController;
 use App\Http\Controllers\Karyawan\DashboardController;
 use App\Http\Controllers\Settings\UpdateProfileController;
@@ -19,4 +20,6 @@ Route::middleware('isKaryawan')->group(function(){
 	Route::get('/karyawan/absensi', [AbsensiController::class, 'index']);
 	Route::get('/karyawan/absensi/create', [AbsensiController::class, 'create']);
 	Route::post('/karyawan/absensi/store', [AbsensiController::class, 'store']);
+	Route::get('/karyawan/rincian-gaji', [GajiController::class, 'index']);
+	Route::get('/karyawan/rincian-gaji/cari', [GajiController::class, 'search']);
 });

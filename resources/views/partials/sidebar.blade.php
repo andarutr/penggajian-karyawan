@@ -70,7 +70,7 @@
       </li>
 
       <li class="side-nav-item">
-        <a href="#" class="side-nav-link">
+        <a href="{{ url(Request::segment(1).'/rincian-gaji') }}" class="side-nav-link">
           <i class="ri-list-check-3"></i>
           <span> Rincian Gaji </span>
         </a>
