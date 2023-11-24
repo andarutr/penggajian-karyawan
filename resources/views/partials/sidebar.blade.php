@@ -75,6 +75,44 @@
           <span> Rincian Gaji </span>
         </a>
       </li>
+      @else
+      <li class="side-nav-item">
+        <a href="{{ url(Request::segment(1)) }}" class="side-nav-link">
+          <i class="ri-home-4-line"></i>
+          <span> Dashboard </span>
+        </a>
+      </li>
+      <li class="side-nav-item">
+        <a href="{{ url(Request::segment(1).'/absensi') }}" class="side-nav-link">
+          <i class="ri-fingerprint-line"></i>
+          <span> Absensi </span>
+        </a>
+      </li>
+      <li class="side-nav-item">
+        <a href="{{ url(Request::segment(1).'/penggajian') }}" class="side-nav-link">
+          <i class="ri-cash-line"></i>
+          <span> Penggajian </span>
+        </a>
+      </li>
+      <li class="side-nav-item">
+        <a href="{{ url(Request::segment(1).'/account') }}" class="side-nav-link">
+          <i class="ri-folder-user-line"></i>
+          <span> Account </span>
+        </a>
+      </li>
+      <li class="side-nav-title mt-1">Other</li>
+      <li class="side-nav-item">
+        <a href="{{ url(Request::segment(1).'/divisi') }}" class="side-nav-link">
+          <i class="ri-creative-commons-by-fill"></i>
+          <span> Divisi </span>
+        </a>
+      </li>
+      <li class="side-nav-item">
+        <a href="{{ url(Request::segment(1).'/jabatan') }}" class="side-nav-link">
+          <i class="ri-briefcase-line"></i>
+          <span> Jabatan </span>
+        </a>
+      </li>
       @endif
 
     </ul>
