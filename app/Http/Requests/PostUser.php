@@ -25,11 +25,11 @@ class PostUser extends FormRequest
     {
         return [
             'nik' => 'nullable|unique:users|numeric',
-            'nama_lengkap' => 'required|alpha',
-            'jenis_kelamin' => 'required|alpha',
-            'status' => 'nullable|alpha',
-            'agama' => 'required|alpha',
-            'kewarganegaraan' => 'required|alpha',
+            'nama_lengkap' => 'required',
+            'jenis_kelamin' => 'required',
+            'status' => 'nullable',
+            'agama' => 'required',
+            'kewarganegaraan' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:8',
             'divisi_id' => 'required|numeric',

@@ -43,7 +43,7 @@
                     </div> <!-- end table-responsive-->
                 </div> <!-- end card body-->
             </div> <!-- end card -->
-                    {{ $gaji->links() }}
+            {{ $gaji->links() }}
         </div><!-- end col-->
     </div>
 </div>

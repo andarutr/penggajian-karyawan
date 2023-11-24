@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
                 "agama" => $user->agama,
                 "kewarganegaraan" => $user->kewarganegaraan,
                 "email" => $user->email,
-                "password" => \Hash::make('test123'),
+                "password" => \Hash::make('test1234'),
                 "divisi_id" => $user->divisi_id,
                 "jabatan_id" => $user->jabatan_id,
                 "role_id" => $user->role_id

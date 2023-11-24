@@ -27,14 +27,14 @@ class AccountController extends Controller
 	public function store(PostUser $req)
 	{
 		$store = User::create([
-			'nik' => $req->nik, // NULL
+			'nik' => $req->nik,
 			'nama_lengkap' => $req->nama_lengkap,
 			'jenis_kelamin' => $req->jenis_kelamin,
-			'status' => $req->status,// NULL
+			'status' => $req->status,
 			'agama' => $req->agama,
 			'kewarganegaraan' => $req->kewarganegaraan,
 			'email' => $req->email,
-			'password' => \Hash::make($req->password),
+			'password' => \Hash::make('test123'),
 			'divisi_id' => $req->divisi_id,
 			'jabatan_id' => $req->jabatan_id,
 			'role_id' => $req->role_id

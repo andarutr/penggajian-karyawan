@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\DivisiController;
+use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Settings\UpdateProfileController;
@@ -16,6 +17,13 @@ Route::middleware('isAdmin')->group(function(){
 	Route::get('/admin/settings/profile', [UpdateProfileController::class, 'index']);
 	Route::get('/admin/settings/profile/edit', [UpdateProfileController::class, 'edit']);
 	Route::put('/admin/settings/profile/edit', [UpdateProfileController::class, 'update']);
+	// Account
+	Route::get('/admin/account', [AccountController::class, 'index']);
+	Route::get('/admin/account/create', [AccountController::class, 'create']);
+	Route::post('/admin/account/store', [AccountController::class, 'store']);
+	Route::get('/admin/account/edit/{id}', [AccountController::class, 'edit']);
+	Route::put('/admin/account/update/{id}', [AccountController::class, 'update']);
+	Route::delete('/admin/account/destroy/{id}', [AccountController::class, 'destroy']);
 	// Divisi
 	Route::get('/admin/divisi', [DivisiController::class, 'index']);
 	Route::get('/admin/divisi/create', [DivisiController::class, 'create']);
