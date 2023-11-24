@@ -1,6 +1,7 @@
 <?php 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\DivisiController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -29,5 +30,12 @@ Route::middleware('isAdmin')->group(function(){
 	Route::get('/admin/jabatan/edit/{id}', [JabatanController::class, 'edit']);
 	Route::put('/admin/jabatan/update/{id}', [JabatanController::class, 'update']);
 	Route::delete('/admin/jabatan/destroy/{id}', [JabatanController::class, 'destroy']);
+	// Role
+	Route::get('/admin/role', [RoleController::class, 'index']);
+	Route::get('/admin/role/create', [RoleController::class, 'create']);
+	Route::post('/admin/role/store', [RoleController::class, 'store']);
+	Route::get('/admin/role/edit/{id}', [RoleController::class, 'edit']);
+	Route::put('/admin/role/update/{id}', [RoleController::class, 'update']);
+	Route::delete('/admin/role/destroy/{id}', [RoleController::class, 'destroy']);
 
 });

@@ -113,6 +113,12 @@
           <span> Jabatan </span>
         </a>
       </li>
+      <li class="side-nav-item">
+        <a href="{{ url(Request::segment(1).'/role') }}" class="side-nav-link">
+          <i class="ri-shield-keyhole-line"></i>
+          <span> Role </span>
+        </a>
+      </li>
       @endif
 
     </ul>
