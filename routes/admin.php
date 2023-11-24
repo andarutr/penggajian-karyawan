@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DivisiController;
+use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Settings\UpdateProfileController;
 use App\Http\Controllers\Settings\ChangePasswordController;
@@ -21,5 +22,12 @@ Route::middleware('isAdmin')->group(function(){
 	Route::get('/admin/divisi/edit/{id}', [DivisiController::class, 'edit']);
 	Route::put('/admin/divisi/update/{id}', [DivisiController::class, 'update']);
 	Route::delete('/admin/divisi/destroy/{id}', [DivisiController::class, 'destroy']);
+	// Jabatan
+	Route::get('/admin/jabatan', [JabatanController::class, 'index']);
+	Route::get('/admin/jabatan/create', [JabatanController::class, 'create']);
+	Route::post('/admin/jabatan/store', [JabatanController::class, 'store']);
+	Route::get('/admin/jabatan/edit/{id}', [JabatanController::class, 'edit']);
+	Route::put('/admin/jabatan/update/{id}', [JabatanController::class, 'update']);
+	Route::delete('/admin/jabatan/destroy/{id}', [JabatanController::class, 'destroy']);
 
 });

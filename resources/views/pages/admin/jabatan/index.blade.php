@@ -1,13 +1,13 @@
 @extends('layouts.panel')
 
-@section('title', 'Divisi')
+@section('title', 'Jabatan')
 
 @section('content')
 <div class="container-fluid">
     @include('partials.breadcrumb')
     <div class="row">
         <div class="col-xl-12">
-            <a href="{{ url('admin/divisi/create') }}" class="btn btn-sm btn-primary mb-3">Tambah data</a>
+            <a href="{{ url('admin/jabatan/create') }}" class="btn btn-sm btn-primary mb-3">Tambah data</a>
             <!-- Start Flash Message -->
             @if(session('success'))
             <div class="alert alert-success alert-dismissible text-bg-success border-0 fade show" role="alert">
@@ -23,26 +23,26 @@
                             <thead>
                                 <tr>
                                     <th width="5%">ID</th>
-                                    <th>Divisi</th>
+                                    <th>Jabatan</th>
                                     <th width="20%">Diperbarui</th>
                                     <th width="20%">Dibuat</th>
                                     <th colspan="2" width="10%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($divisi as $div)
+                                @foreach($jabatan as $jb)
                                 <tr>
-                                    <td>{{ $div->id }}</td>
-                                    <td>{{ $div->divisi }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($div->updated_at)->format('d F Y') }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($div->created_at)->format('d F Y') }}</td>
+                                    <td>{{ $jb->id }}</td>
+                                    <td>{{ $jb->jabatan }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($jb->updated_at)->format('d F Y') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($jb->created_at)->format('d F Y') }}</td>
                                     <td>
-                                        <form action="/admin/divisi/edit/{{ $div->id }}" method="POST">@csrf @method('get')
+                                        <form action="/admin/jabatan/edit/{{ $jb->id }}" method="POST">@csrf @method('get')
                                             <button type="submit" class="btn btn-success"><i class="ri-edit-line"></i></button>
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="/admin/divisi/destroy/{{ $div->id }}" method="POST" onclick="return confirm('Yakin ingin menghapus data?')">@csrf @method('delete')
+                                        <form action="/admin/jabatan/destroy/{{ $jb->id }}" method="POST" onclick="return confirm('Yakin ingin menghapus data?')">@csrf @method('delete')
                                             <button type="submit" class="btn btn-danger"><i class="ri-delete-bin-line"></i></button>
                                         </form>
                                     </td>
