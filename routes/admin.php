@@ -21,6 +21,8 @@ Route::middleware('isAdmin')->group(function(){
 	Route::get('/admin/account', [AccountController::class, 'index']);
 	Route::get('/admin/account/create', [AccountController::class, 'create']);
 	Route::post('/admin/account/store', [AccountController::class, 'store']);
+	Route::get('/admin/account/cari', [AccountController::class, 'search']);
+	Route::get('/admin/account/show/{id}', [AccountController::class, 'show']);
 	Route::get('/admin/account/edit/{id}', [AccountController::class, 'edit']);
 	Route::put('/admin/account/update/{id}', [AccountController::class, 'update']);
 	Route::delete('/admin/account/destroy/{id}', [AccountController::class, 'destroy']);

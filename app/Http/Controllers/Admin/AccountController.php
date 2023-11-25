@@ -21,6 +21,26 @@ class AccountController extends Controller
         return view('pages.admin.account.index', $data);
     }
 
+    public function search(Request $req)
+    {
+        $data['menu'] = 'Management Account';
+        $search = $req->search;
+        $data['users'] = User::where('nama_lengkap', 'like', '%'.$search.'%')
+                            ->orwhere('email','like','%'.$search.'%')
+                            ->orderByDesc('id')
+                            ->paginate(8);
+
+        return view('pages.admin.account.index', $data);
+    }
+
+    public function show($id)
+    {
+        $data['menu'] = 'Show Account';
+        $data['user'] = User::where('id', $id)->first();
+
+        return view('pages.admin.account.show', $data);
+    }
+
     public function create()
     {
     	$data['menu'] = 'Tambah Account';
