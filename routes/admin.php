@@ -1,8 +1,10 @@
 <?php 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\GajiController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\DivisiController;
+use App\Http\Controllers\Admin\AbsensiController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -17,6 +19,17 @@ Route::middleware('isAdmin')->group(function(){
 	Route::get('/admin/settings/profile', [UpdateProfileController::class, 'index']);
 	Route::get('/admin/settings/profile/edit', [UpdateProfileController::class, 'edit']);
 	Route::put('/admin/settings/profile/edit', [UpdateProfileController::class, 'update']);
+	// Absensi
+	Route::get('/admin/absensi', [AbsensiController::class, 'index']);
+	Route::get('/admin/absensi/cari', [AbsensiController::class, 'search']);
+	// Penggajian
+	Route::get('/admin/penggajian', [GajiController::class, 'index']);
+	Route::get('/admin/penggajian/show/{id}', [GajiController::class, 'show']);
+	Route::get('/admin/penggajian/create', [GajiController::class, 'create']);
+	Route::post('/admin/penggajian/store', [GajiController::class, 'store']);
+	Route::get('/admin/penggajian/edit/{id}', [GajiController::class, 'edit']);
+	Route::put('/admin/penggajian/update/{id}', [GajiController::class, 'update']);
+	Route::delete('/admin/penggajian/destroy/{id}', [GajiController::class, 'destroy']);
 	// Account
 	Route::get('/admin/account', [AccountController::class, 'index']);
 	Route::get('/admin/account/create', [AccountController::class, 'create']);
