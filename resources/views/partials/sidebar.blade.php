@@ -54,13 +54,12 @@
     <ul class="side-nav">
       <li class="side-nav-title mt-3">Apps</li>
       @if(Auth::user()->role->role === 'Karyawan')
-      <li class="side-nav-item">
+      <!-- <li class="side-nav-item">
         <a href="{{ url(Request::segment(1)) }}" class="side-nav-link">
           <i class="ri-home-4-line"></i>
           <span> Dashboard </span>
         </a>
-      </li>
-
+      </li> -->
 
       <li class="side-nav-item">
         <a href="{{ url(Request::segment(1).'/absensi') }}" class="side-nav-link">

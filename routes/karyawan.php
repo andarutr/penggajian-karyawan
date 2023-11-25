@@ -9,7 +9,7 @@ use App\Http\Controllers\Settings\ChangePasswordController;
 
 Route::middleware('isKaryawan')->group(function(){
 	// Dashboard
-	Route::get('/karyawan', DashboardController::class);
+	Route::redirect('/karyawan', '/karyawan/absensi');
 	// Setting
 	Route::get('/karyawan/settings/change-password', [ChangePasswordController::class, 'index']);
 	Route::post('/karyawan/settings/change-password', [ChangePasswordController::class, 'update']);
