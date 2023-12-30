@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Staff;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,6 +13,6 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
     	$data['menu'] = 'Dashboard';
-        return view('pages.karyawan.dashboard', $data);
+        return view('pages.staff.dashboard', $data);
     }
 }

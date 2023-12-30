@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class isKaryawan
+class isStaff
 {
     /**
      * Handle an incoming request.
@@ -21,7 +21,7 @@ class isKaryawan
             return redirect()->route('login');
         }else{
             if(Auth::user()->role_id !== 2){
-                echo "Kamu bukan karyawan!"; die;
+                echo "Kamu bukan staff!"; die;
             }
 
         	return $next($request);

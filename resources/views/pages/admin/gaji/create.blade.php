@@ -15,13 +15,6 @@
                         <div class="col-lg-12">
                             <form action="/admin/penggajian/store" method="POST">@csrf
                                 <div class="mb-3">
-                                    <label for="no_slip" class="form-label">No. Slip</label>
-                                    <div class="input-group input-group-merge">
-                                        <input type="number" name="no_slip" class="form-control" placeholder="Masukkan nomor slip gaji" value="{{ old('no_slip') }}">
-                                    </div>
-                                    @error('no_slip')<p class="text-danger">{{ $message }}</p>@enderror
-                                </div>
-                                <div class="mb-3">
                                     <label for="user_id" class="form-label">Karyawan</label>
                                     <div class="input-group input-group-merge">
                                         <select class="form-control" name="user_id">
@@ -36,22 +29,15 @@
                                     @error('user_id')<p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="gaji_pokok" class="form-label">Nominal Gaji</label>
-                                    <div class="input-group input-group-merge">
-                                        <input type="number" name="gaji_pokok" class="form-control" placeholder="Masukkan nominal gaji" value="{{ old('gaji_pokok') }}">
-                                    </div>
-                                    @error('gaji_pokok')<p class="text-danger">{{ $message }}</p>@enderror
-                                </div>
-                                <div class="mb-3">
                                     <label for="nama_lengkap" class="form-label">Absen</label>
                                     <div class="input-group input-group-merge">
                                         <input type="text" name="nama_lengkap" class="form-control" placeholder="Dihitung oleh sistem" readonly>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="tunjangan" class="form-label">Tunjangan</label>
+                                    <label for="tunjangan" class="form-label">Tunjangan Absen</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="text" name="tunjangan" class="form-control" placeholder="Masukkan tunjangan bulanan" value="{{ old('tunjangan') }}">
+                                        <input type="text" name="tunjangan" class="form-control" placeholder="Masukkan tunjangan absen" value="{{ old('tunjangan') }}">
                                     </div>
                                     @error('tunjangan')<p class="text-danger">{{ $message }}</p>@enderror
                                 </div>

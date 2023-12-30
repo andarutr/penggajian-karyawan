@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Staff;
 
 use Auth;
 use App\Models\Absensi;
@@ -17,14 +17,14 @@ class AbsensiController extends Controller
 									->orderByDesc('id')
 									->paginate(8);
 
-		return view('pages.karyawan.absensi.index', $data);
+		return view('pages.staff.absensi.index', $data);
 	}
 
     public function create()
     {
         $data['menu'] = 'Mulai Absen!';
 
-        return view('pages.karyawan.absensi.create', $data);
+        return view('pages.staff.absensi.create', $data);
     }
 
     public function store(Request $req)

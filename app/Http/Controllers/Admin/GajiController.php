@@ -39,20 +39,20 @@ class GajiController extends Controller
     public function store(Request $req)
     {
     	$this->validate($req, [
-    		'no_slip' => 'required|unique:gaji',
             'user_id' => 'required',
-            'gaji_pokok' => 'required',
             'tunjangan' => 'required'
         ]);
 
     	$absen = Absensi::where(['user_id' => $req->user_id, 'keterangan' => 'Tidak Hadir'])->count();
-    	$store = Gaji::create([
-			'no_slip' => $req->no_slip,
+        $user = User::where('id', $req->user_id)->first();
+    	$gapok_otomatis = ($user->jabatan->jabatan === 'Direktur') ? 20000000 : (($user->jabatan->jabatan === 'Manager') ? 12000000 : 5100000);
+        $store = Gaji::create([
+			'no_slip' => date('Ymd').substr($user->nik, 14, 16),
 			'user_id' => $req->user_id,
-			'gaji_pokok' => $req->gaji_pokok,
-			'absen' => $absen,
+			'gaji_pokok' => $gapok_otomatis,
+            'absen' => $absen,
 			'tunjangan' => $req->tunjangan,
-			'total_gaji' => $req->gaji_pokok * 12,
+			'total_gaji' => $gapok_otomatis,
 			'created_at' => $req->periode,
 			'updated_at' => $req->periode
 		]);

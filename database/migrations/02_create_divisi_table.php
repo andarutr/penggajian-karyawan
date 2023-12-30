@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('divisi', function (Blueprint $table) {
             $table->id();
-            $table->enum('divisi', ['Humas','Penjualan','IT','HR']);
+            $table->string('divisi', 25);
             $table->timestamps();
         });
     }

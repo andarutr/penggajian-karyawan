@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Karyawan;
+namespace App\Http\Controllers\Staff;
 
 use Auth;
 use App\Models\Gaji;
@@ -19,7 +19,7 @@ class GajiController extends Controller
     						->orderByDesc('id')
     						->paginate(8);
 
-        return view('pages.karyawan.gaji.index', $data);
+        return view('pages.staff.gaji.index', $data);
     }
 
     public function search(Request $req)
@@ -31,6 +31,6 @@ class GajiController extends Controller
     						->orderByDesc('id')
     						->paginate(8);
 
-        return view('pages.karyawan.gaji.index', $data);
+        return view('pages.staff.gaji.index', $data);
     }
 }
