@@ -42,7 +42,7 @@
                                     <td>{{ $g->user->nama_lengkap }}</td>
                                     <td>{{ $g->user->divisi->divisi }}</td>
                                     <td>Rp{{ number_format($g->gaji_pokok,0,',','.') }}</td>
-                                    <td>{{ $g->no_slip }}</td>
+                                    <td>{{ $g->no_slip }} <a href="/admin/penggajian/show-pdf/{{ $g->id }}" class="badge bg-primary">lihat</a> <a href="/admin/penggajian/download-pdf/{{ $g->id }}" class="badge bg-danger">download</a></td>
                                     <td>{{ $g->absen }}</td>
                                     <td>{{ \Carbon\Carbon::parse($g->created_at)->format('F Y') }}</td>
                                     <td>

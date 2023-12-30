@@ -1,13 +1,13 @@
 @extends('layouts.panel')
 
-@section('title', 'Absensi Karyawan')
+@section('title', 'Absensi Staff')
 
 @section('content')
 <div class="container-fluid">
     @include('partials.breadcrumb')
     <div class="row">
         <div class="col-xl-12">
-            <a href="{{ url('karyawan/absensi/create') }}" class="btn btn-sm btn-primary mb-3">Mulai Absen!</a>
+            <a href="{{ url('staff/absensi/create') }}" class="btn btn-sm btn-primary mb-3">Mulai Absen!</a>
             <div class="card">
                 <div class="card-body">
 

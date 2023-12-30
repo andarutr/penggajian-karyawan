@@ -1,7 +1,7 @@
 <!-- ========== Left Sidebar Start ========== -->
 <div class="leftside-menu">
   <!-- Brand Logo Light -->
-  <a href="index.php" class="logo logo-light mt-3">
+  <a href="/{{ Request::segment(1) }}" class="logo logo-light mt-3">
     <span class="logo-lg">
       <img src="{{ url('assets/images/logo.png') }}" alt="logo" />
     </span>
@@ -11,7 +11,7 @@
   </a>
 
   <!-- Brand Logo Dark -->
-  <a href="index.php" class="logo logo-dark mt-3">
+  <a href="/{{ Request::segment(1) }}" class="logo logo-dark mt-3">
     <span class="logo-lg">
       <img src="{{ url('assets/images/logo-dark.png') }}" alt="dark logo" />
     </span>
@@ -53,7 +53,7 @@
     <!--- Sidemenu -->
     <ul class="side-nav">
       <li class="side-nav-title mt-3">Apps</li>
-      @if(Auth::user()->role->role === 'Karyawan')
+      @if(Auth::user()->role->role === 'Staff')
       <!-- <li class="side-nav-item">
         <a href="{{ url(Request::segment(1)) }}" class="side-nav-link">
           <i class="ri-home-4-line"></i>

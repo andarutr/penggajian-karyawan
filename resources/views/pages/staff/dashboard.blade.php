@@ -1,6 +1,6 @@
 @extends('layouts.panel')
 
-@section('title', 'Dashboard Karyawan')
+@section('title', 'Dashboard Staff')
 
 @section('content')
 <div class="container-fluid">

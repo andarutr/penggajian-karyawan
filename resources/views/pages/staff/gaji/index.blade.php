@@ -7,7 +7,7 @@
     @include('partials.breadcrumb')
     <div class="row">
         <div class="col-xl-2 mb-3">
-            <form action="/karyawan/rincian-gaji/cari" method="GET">
+            <form action="/staff/rincian-gaji/cari" method="GET">
                 <input type="text" name="search" class="form-control" placeholder="Cari...">
             </form>
         </div>
@@ -32,7 +32,7 @@
                                 @foreach($gaji as $g)
                                 @if($g->user->id === Auth::user()->id)
                                 <tr>
-                                    <td>{{ $g->no_slip }}</td>
+                                    <td>{{ $g->no_slip }} <a href="/staff/rincian-gaji/show-pdf/{{ $g->id }}" class="badge bg-primary">lihat</a> <a href="/staff/rincian-gaji/download-pdf/{{ $g->id }}" class="badge bg-danger">download</a></td>
                                     <td>Rp{{ number_format($g->gaji_pokok,0,',','.') }}</td>
                                     <td>{{ \Carbon\Carbon::parse($g->created_at)->format('F Y') }}</td>
                                 </tr>

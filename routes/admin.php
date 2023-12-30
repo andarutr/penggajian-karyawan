@@ -24,9 +24,11 @@ Route::middleware('isAdmin')->group(function(){
 	Route::get('/admin/absensi/cari', [AbsensiController::class, 'search']);
 	// Penggajian
 	Route::get('/admin/penggajian', [GajiController::class, 'index']);
-	Route::get('/admin/penggajian/show/{id}', [GajiController::class, 'show']);
 	Route::get('/admin/penggajian/create', [GajiController::class, 'create']);
+	Route::get('/admin/penggajian/show-pdf/{id}', [GajiController::class, 'show_pdf']);
+	Route::get('/admin/penggajian/download-pdf/{id}', [GajiController::class, 'download_pdf']);
 	Route::post('/admin/penggajian/store', [GajiController::class, 'store']);
+	Route::get('/admin/penggajian/show/{id}', [GajiController::class, 'show']);
 	Route::get('/admin/penggajian/edit/{id}', [GajiController::class, 'edit']);
 	Route::put('/admin/penggajian/update/{id}', [GajiController::class, 'update']);
 	Route::delete('/admin/penggajian/destroy/{id}', [GajiController::class, 'destroy']);

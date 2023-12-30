@@ -22,4 +22,6 @@ Route::middleware('isStaff')->group(function(){
 	Route::post('/staff/absensi/store', [AbsensiController::class, 'store']);
 	Route::get('/staff/rincian-gaji', [GajiController::class, 'index']);
 	Route::get('/staff/rincian-gaji/cari', [GajiController::class, 'search']);
+	Route::get('/staff/rincian-gaji/show-pdf/{id}', [GajiController::class, 'show_pdf']);
+	Route::get('/staff/rincian-gaji/download-pdf/{id}', [GajiController::class, 'download_pdf']);
 });

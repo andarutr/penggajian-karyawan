@@ -8,7 +8,7 @@
     
     <div class="row">
         <div class="col-12">
-            <a href="{{ url('karyawan/absensi') }}" class="btn btn-sm btn-success mb-3">Kembali</a>
+            <a href="{{ url('staff/absensi') }}" class="btn btn-sm btn-success mb-3">Kembali</a>
             <!-- Start Flash Message -->
             @if(session('success'))
             <div class="alert alert-success alert-dismissible text-bg-success border-0 fade show" role="alert">

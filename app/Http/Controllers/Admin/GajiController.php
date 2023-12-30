@@ -6,6 +6,7 @@ use App\Models\Gaji;
 use App\Models\User;
 use App\Models\Absensi;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Requests\PostGaji;
 use App\Http\Controllers\Controller;
 
@@ -46,12 +47,13 @@ class GajiController extends Controller
     	$absen = Absensi::where(['user_id' => $req->user_id, 'keterangan' => 'Tidak Hadir'])->count();
         $user = User::where('id', $req->user_id)->first();
     	$gapok_otomatis = ($user->jabatan->jabatan === 'Direktur') ? 20000000 : (($user->jabatan->jabatan === 'Manager') ? 12000000 : 5100000);
+        $tunjangan_absensi = $user->jabatan->jabatan === 'Staff' ? $req->tunjangan : 0; 
         $store = Gaji::create([
 			'no_slip' => date('Ymd').substr($user->nik, 14, 16),
 			'user_id' => $req->user_id,
 			'gaji_pokok' => $gapok_otomatis,
             'absen' => $absen,
-			'tunjangan' => $req->tunjangan,
+			'tunjangan' => $tunjangan_absensi,
 			'total_gaji' => $gapok_otomatis,
 			'created_at' => $req->periode,
 			'updated_at' => $req->periode
@@ -72,20 +74,13 @@ class GajiController extends Controller
     public function update(Request $req, $id)
     {
     	$this->validate($req, [
-    		'no_slip' => 'required',
-            'user_id' => 'required',
-            'gaji_pokok' => 'required',
             'tunjangan' => 'required'
         ]);
 
-    	$absen = Absensi::where(['user_id' => $req->user_id, 'keterangan' => 'Tidak Hadir'])->count();
+        $absen = Absensi::where(['user_id' => $req->user_id, 'keterangan' => 'Tidak Hadir'])->count();
     	$store = Gaji::where('id', $id)->update([
-			'no_slip' => $req->no_slip,
-			'user_id' => $req->user_id,
-			'gaji_pokok' => $req->gaji_pokok,
 			'absen' => $absen,
 			'tunjangan' => $req->tunjangan,
-			'total_gaji' => $req->gaji_pokok * 12,
 			'created_at' => $req->periode,
 			'updated_at' => $req->periode
 		]);
@@ -97,5 +92,23 @@ class GajiController extends Controller
     {
     	$destroy = Gaji::where('id', $id)->delete();
     	return redirect('/admin/penggajian')->with('success', 'Berhasil menghapus slip gaji!');
+    }
+
+    protected function download_pdf($id)
+    {
+        $data['gaji'] = Gaji::where('id', $id)->first();
+        $data['user'] = User::where('id', $data['gaji']->user_id)->first();
+        $pdf = Pdf::loadView('pages.pdf.slipgaji', $data);
+        return $pdf->download('slipgaji.pdf');
+    }
+
+    protected function show_pdf($id)
+    {
+        $data['gaji'] = Gaji::where('id', $id)->first();
+        $data['user'] = User::where('id', $data['gaji']->user_id)->first();
+        // $pdf = App::make('pages.pdf.slipgaji', $data);
+        // $pdf->loadHTML('<h1>Test</h1>');
+        $pdf = Pdf::loadView('pages.pdf.slipgaji', $data);
+        return $pdf->stream();
     }
 }

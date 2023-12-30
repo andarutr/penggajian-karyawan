@@ -15,32 +15,11 @@
                         <div class="col-lg-12">
                             <form action="/admin/penggajian/update/{{ $gaji->id }}" method="POST">@csrf @method('put')
                                 <div class="mb-3">
-                                    <label for="no_slip" class="form-label">No. Slip</label>
+                                    <label for="nama_lengkap" class="form-label">Staff</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="number" name="no_slip" class="form-control" placeholder="Masukkan nomor slip gaji" value="{{ $gaji->no_slip }}">
+                                        <input type="text" value="{{ $gaji->user->nama_lengkap }}" class="form-control" disabled>
+                                        <input type="hidden" value="2" name="user_id">
                                     </div>
-                                    @error('no_slip')<p class="text-danger">{{ $message }}</p>@enderror
-                                </div>
-                                <div class="mb-3">
-                                    <label for="user_id" class="form-label">Karyawan</label>
-                                    <div class="input-group input-group-merge">
-                                        <select class="form-control" name="user_id">
-                                            <option value="{{ $gaji->user->id }}">{{ $gaji->user->nama_lengkap}}</option>
-                                            @foreach($users as $u)
-                                            @if($u->role->role !== 'Admin')
-                                            <option value="{{ $u->id }}">{{ $u->nama_lengkap }}</option>
-                                            @endif
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    @error('user_id')<p class="text-danger">{{ $message }}</p>@enderror
-                                </div>
-                                <div class="mb-3">
-                                    <label for="gaji_pokok" class="form-label">Nominal Gaji</label>
-                                    <div class="input-group input-group-merge">
-                                        <input type="number" name="gaji_pokok" class="form-control" placeholder="Masukkan nominal gaji" value="{{ $gaji->gaji_pokok }}">
-                                    </div>
-                                    @error('gaji_pokok')<p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="nama_lengkap" class="form-label">Absen</label>

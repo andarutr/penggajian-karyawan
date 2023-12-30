@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
         if(Auth::user()->role_id === 1){
             return redirect('/admin');
         }else{
-            return redirect('/karyawan');
+            return redirect('/staff');
         }
     }
 
@@ -47,6 +47,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }
