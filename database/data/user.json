@@ -22,5 +22,17 @@
 		"divisi_id": 3,
 		"jabatan_id": 3,
 		"role_id": 2
+	},
+	{
+		"nik": 8293049586984593,
+		"nama_lengkap": "Rizaq Muhammad",
+		"jenis_kelamin": "Pria",
+		"status": "Belum Menikah",
+		"agama": "Islam",
+		"kewarganegaraan": "WNI",
+		"email": "muhammad@domain.com",
+		"divisi_id": 3,
+		"jabatan_id": 3,
+		"role_id": 2
 	}
 ]

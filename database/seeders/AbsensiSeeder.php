@@ -24,7 +24,7 @@ class AbsensiSeeder extends Seeder
             Absensi::create([
                 'user_id' => $absen->user_id,
                 'picture' => $absen->picture,
-                'waktu' => now(),
+                'waktu' => $absen->waktu,
                 'kota' => $location->getCity(),
                 'longitude' => $location->getLongitude(),
                 'latitude' => $location->getLatitude(),
