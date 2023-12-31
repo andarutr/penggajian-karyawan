@@ -69,8 +69,26 @@
                     <div style="max-height: 300px;" data-simplebar>
 
                         <h5 class="text-muted fs-12 fw-bold p-2 text-uppercase mb-0">{{ date('d F Y') }}</h5>
-                        
-
+                        @php
+                        $notif = \DB::table('absensi')->where(['user_id' => Auth::user()->id, 'keterangan' => 'Hadir'])->count();
+                        @endphp
+                        @if(Auth::user()->role_id === 2 && $notif < 18)
+                        <a href="javascript:void(0);" class="dropdown-item p-0 notify-item unread-noti card m-0 shadow-none">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <div class="notify-icon bg-danger">
+                                            <i class="ri-message-3-line fs-18"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 text-truncate ms-2">
+                                        <h5 class="noti-item-title fw-semibold fs-14">System <small class="fw-normal text-muted float-end ms-1">1 min ago</small></h5>
+                                        <small class="noti-item-subtitle text-muted">Anda kurang dari 18 hari masuk!</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        @endif
                         <a href="javascript:void(0);" class="dropdown-item p-0 notify-item unread-noti card m-0 shadow-none">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
