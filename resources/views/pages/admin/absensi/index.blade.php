@@ -41,7 +41,7 @@
                                         <span class="badge bg-warning">{{ $abs->keterangan }}</span>
                                         @endif
                                     </td>
-                                    <td>{{ \Carbon\Carbon::parse($abs->created_at)->format('d F Y, H:i') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($abs->waktu)->format('d F Y, H:i') }}</td>
                                     <td><iframe src = "https://maps.google.com/maps?q={{ $abs->latitude }},{{ $abs->longitude }}&hl=es;z=14&amp;output=embed" width="200" height="100"></iframe></td>
                                 </tr>
                                 @endforeach

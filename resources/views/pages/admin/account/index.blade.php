@@ -37,7 +37,6 @@
                             </thead>
                             <tbody>
                                 @foreach($users as $user)
-                                @if($user->role->role !== 'Admin')
                                 <tr>
                                     <td>{{ $user->nama_lengkap }}</td>
                                     <td>{{ $user->email }}</td>
@@ -55,12 +54,13 @@
                                         </form>
                                     </td>
                                     <td>
+                                        @if($user->role->role !== 'Admin')
                                         <form action="/admin/account/destroy/{{ $user->id }}" method="POST" onclick="return confirm('Yakin ingin menghapus data?')">@csrf @method('delete')
                                             <button type="submit" class="btn btn-danger"><i class="ri-delete-bin-line"></i></button>
                                         </form>
+                                        @endif
                                     </td>
                                 </tr>
-                                @endif
                                 @endforeach
                             </tbody>
                         </table>

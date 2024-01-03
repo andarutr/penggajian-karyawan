@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('gaji', function (Blueprint $table) {
             $table->id();
-            $table->integer('no_slip');
+            $table->bigInteger('no_slip');
             $table->unsignedBigInteger('user_id');
             $table->integer('gaji_pokok');
             $table->integer('absen');
